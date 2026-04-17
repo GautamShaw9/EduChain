@@ -1486,7 +1486,7 @@ if (uploadForm.currency === "crypto") {
                 </div>
               </div>
             ) : (
-              <BarChart width="100%" height={256} data={barData}>
+              <BarChart width={500} height={256} data={barData}>
                 <CartesianGrid strokeDasharray="3 3" />
                 <XAxis dataKey="name" tick={{ fontSize: 12 }} />
                 <YAxis allowDecimals={false} tick={{ fontSize: 12 }} />

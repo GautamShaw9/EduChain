@@ -66,7 +66,10 @@ export async function GET(_req: NextRequest, context: RouteContext) {
     console.log("allPurchases count:", allPurchases?.length ?? 0);
     if (allPurchases && allPurchases.length > 0) {
       // Log distinct payment_status values and a sample row
-      const statuses = [...new Set(allPurchases.map((p) => p.payment_status))];
+      const statuses = Array.from(
+new Set(allPurchases.map((p) => p.payment_status))
+);
+
       console.log("distinct payment_status values:", statuses);
       console.log("sample row:", JSON.stringify(allPurchases[0], null, 2));
     }
@@ -103,7 +106,10 @@ export async function GET(_req: NextRequest, context: RouteContext) {
 
     // ── Recent transactions (last 5) ─────────────────────────────────────────
     const recentRaw = purchases.slice(0, 5);
-    const studentIds = [...new Set(recentRaw.map((p) => p.user_id))];
+    const studentIds = Array.from(
+new Set(recentRaw.map((p) => p.user_id))
+);
+
     let studentEmailMap = new Map<string, string>();
 
     if (studentIds.length > 0) {

@@ -260,10 +260,10 @@ export default function AnalyticsDashboard() {
     if (!user) { setLoading(false); return; }
 
     const [s, c, l, t, w, wr] = await Promise.all([
-      fetchStatsOverview(user.id, dateFilter),
-      fetchEarningsChart(user.id, dateFilter),
-      fetchLecturePerformance(user.id, dateFilter),
-      fetchRecentTransactions(user.id, 10),
+      fetchStatsOverview(user.id),
+      fetchEarningsChart(user.id),
+      fetchLecturePerformance(user.id),
+      fetchRecentTransactions(user.id),
       fetchWalletData(user.id),
       fetchWithdrawalHistory(user.id),
     ]);
